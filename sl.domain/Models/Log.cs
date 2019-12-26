@@ -36,7 +36,7 @@ namespace sl.domain.Models
             SystemId = systemId;
 
             if (level == LogLevel.Unknown)
-                throw new LogDomainException("Log's level is not right!!!");
+                throw new LogDomainException("Log's level is not right!!! Ex.: Trace, Debug, Info, Warn, Error, Fatal.");
             Level = level;
 
             RegisteredAt = DateTime.UtcNow;
