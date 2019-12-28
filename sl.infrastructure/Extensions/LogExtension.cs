@@ -3,7 +3,6 @@ using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using bp.common.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 using MediatR;
 using sl.infrastructure.Validation;
@@ -27,7 +26,7 @@ namespace sl.infrastructure.Extensions
 
         public static void ConfigureExceptionHandler(this IApplicationBuilder app, ILoggerProvider loggerProvider)
         {
-            var logger = loggerProvider.CreateLogger("exception=handler");
+            var logger = loggerProvider.CreateLogger("exception-handler");
             app.UseExceptionHandler(appError =>
             {
                 appError.Run(async context =>
@@ -38,25 +37,14 @@ namespace sl.infrastructure.Extensions
                     if (contextFeature != null)
                     {
                         logger.LogError($"Something went wrong: {contextFeature.Error}");
-                        ProblemDetails details;
-                        if (contextFeature.Error.IsSystemException())
+
+                        var details = new ProblemDetails
                         {
-                            details = new ProblemDetails
-                            {
-                                Status = context.Response.StatusCode,
-                                Title = "Internal Server Error.",
-                                Detail = $"Something went wrong!",
-                            };
-                        }
-                        else
-                        {
-                            details = new ProblemDetails
-                            {
-                                Status = context.Response.StatusCode,
-                                Title = "Internal Logical Error.",
-                                Detail = contextFeature.Error.Message,
-                            };
-                        }
+                            Status = context.Response.StatusCode,
+                            Title = "Internal Server Error.",
+                            Detail = contextFeature.Error.Message
+                        };
+
                         var jsonValue = System.Text.Json.JsonSerializer.Serialize(details);
 
                         await context.Response.WriteAsync(jsonValue);
