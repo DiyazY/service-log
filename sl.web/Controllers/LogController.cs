@@ -14,6 +14,12 @@ namespace sl.web.Controllers
             _mediator = mediator;
         }
 
+
+        /// <summary>
+        /// Adds log
+        /// </summary>
+        /// <param name="command">create log command</param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult AddLog([FromBody]CreateLogCommand command)
         {
