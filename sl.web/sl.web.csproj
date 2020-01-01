@@ -14,6 +14,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\sl.infrastructure.migrations\sl.infrastructure.migrations.csproj" />
     <ProjectReference Include="..\sl.infrastructure\sl.infrastructure.csproj" />
   </ItemGroup>
 

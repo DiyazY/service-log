@@ -67,6 +67,13 @@ namespace sl.domain.Models
             return log;
         }
 
+        public static Log InstanciateLog(Guid id, string message, string systemId, LogLevel level, string stackTrace, string[] labels, DateTime registeredAt)
+        {
+            var log = CreateLog(id, message, systemId, level, stackTrace, labels);
+            log.RegisteredAt = registeredAt;
+            return log;
+        }
+
         #endregion
 
     }

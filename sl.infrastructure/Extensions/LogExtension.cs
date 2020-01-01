@@ -10,15 +10,27 @@ using sl.application.Models;
 using sl.domain.Models;
 using sl.infrastructure.Repositories;
 using sl.application.Queries;
+using sl.infrastructure.Repositories.Context;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace sl.infrastructure.Extensions
 {
     public static class LogExtension
     {
-        public static IServiceCollection AddLogs(this IServiceCollection services)
+        public static IServiceCollection AddLogs(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddMediatR(typeof(LogViewModel).Assembly);
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
+            var connectionString = configuration.GetConnectionString("db");
+            services.AddDbContextPool<LogDbContext>(options =>
+            {
+                options.UseNpgsql(
+                    connectionString,
+                    x => x.MigrationsAssembly("sl.infrastructure.migrations")
+                          .MigrationsHistoryTable("ef_migrations")
+                    );
+            });
             services.AddTransient<ILogRepository, LogRepository>();
             services.AddTransient<IQueryRepository, QueryRepository>();
             return services;
