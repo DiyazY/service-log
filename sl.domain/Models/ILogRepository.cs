@@ -6,6 +6,5 @@ namespace sl.domain.Models
     {
         void AddLog(Log log);
         Log GetLogById(Guid id);
-        bool IsExist(Guid id);
     }
 }

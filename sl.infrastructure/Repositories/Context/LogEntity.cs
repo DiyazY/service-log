@@ -8,13 +8,13 @@ namespace sl.infrastructure.Repositories.Context
 {
     public sealed class LogEntity
     {
-        public Guid Id { get; private set; }
-        public string Message { get; private set; }
-        public string Level { get; private set; }
-        public string SystemId { get; private set; }
-        public string StackTrace { get; private set; }
-        public DateTime RegisteredAt { get; private set; }
-        public List<string> Labels { get; private set; }
+        public Guid Id { get; set; }
+        public string Message { get; set; }
+        public string Level { get; set; }
+        public string SystemId { get; set; }
+        public string StackTrace { get; set; }
+        public DateTime RegisteredAt { get; set; }
+        public string[] Labels { get; set; }
 
         /// <summary>
         /// Search vector
@@ -31,7 +31,7 @@ namespace sl.infrastructure.Repositories.Context
                     log.SystemId,
                     (LogLevel)Enum.Parse(typeof(LogLevel), log.Level),
                     log.StackTrace,
-                    log.Labels.ToArray(),
+                    log.Labels,
                     log.RegisteredAt
                     );
             }

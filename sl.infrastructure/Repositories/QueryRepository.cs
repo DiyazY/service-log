@@ -1,16 +1,41 @@
-﻿using sl.application.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using sl.application.Models;
 using sl.application.Queries;
-using System;
+using sl.infrastructure.Repositories.Context;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace sl.infrastructure.Repositories
 {
-    //TODO: implement
     public class QueryRepository : IQueryRepository
     {
+        private readonly LogDbContext _dbContext;
+        public QueryRepository(LogDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
         public IEnumerable<LogViewModel> GetLogsByTerm(string systemId, int page = 1, int count = 5, string queryString = null)
         {
-            throw new NotImplementedException();
+            var query = _dbContext.Logs.Where(p => p.SystemId.ToUpper() == systemId.ToUpper());
+
+            if (!string.IsNullOrWhiteSpace(queryString))
+            {
+                query = query.Where(p => p.SearchVector.Matches(queryString));
+            }
+
+            var logs = query
+                .Skip((page - 1) * count)
+                .Take(count)
+                .Select(p => new LogViewModel
+                {
+                    Id = p.Id,
+                    Level = p.Level,
+                    Labels = p.Labels,
+                    Message = p.Message,
+                    SystemId = p.SystemId,
+                    RegisteredAt = p.RegisteredAt
+                });
+            return logs;
         }
     }
 }
