@@ -63,9 +63,9 @@ namespace sl.application.unitTests.Queries
 
             // assert
             Assert.NotNull(result);
-            Assert.Single(result);
+            Assert.Single(result.Logs);
             repositoryMock.Verify(p => p.GetLogsByTerm(It.IsAny<string>(), It.IsAny<int>(), It.IsAny<int>(), It.IsAny<string>()), Times.Once);
-            Assert.Single(result, p => p.Id == Guid.Parse("8d67d5a6-b37a-4a13-83a9-1088e4aa16b6"));
+            Assert.Single(result.Logs, p => p.Id == Guid.Parse("8d67d5a6-b37a-4a13-83a9-1088e4aa16b6"));
         }
 
         public static IEnumerable<object[]> Ids

@@ -1,10 +1,49 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "logs";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<form>
+    <div class="form-row align-items-center">
+        <div class="col-auto">
+            <label class="sr-only" for="system-id">System id</label>
+            <input asp-for="SystemId" type="text" class="form-control mb-2" id="system-id">
+        </div>
+        <div class="col-auto">
+            <label class="sr-only" for="term">Term</label>
+            <input asp-for="Term" type="text" class="form-control mb-2" id="term">
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-2">Search</button>
+        </div>
+    </div>
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Message</th>
+            <th>Level</th>
+            <th>Labels</th>
+            <th>Registered at</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Data)
+        {
+            <tr>
+                <td>@item.Message</td>
+                <td>@item.Level</td>
+                <td>
+                    @foreach (var label in item.Labels)
+                    {
+                        <span class="badge badge-light">@label</span>
+                    }
+                </td>
+                <td>@item.RegisteredAt</td>
+            </tr>
+        }
+    </tbody>
+    <tfoot></tfoot>
+</table>

@@ -4,6 +4,7 @@ using sl.application.Queries;
 using sl.infrastructure.Repositories.Context;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace sl.infrastructure.Repositories
 {
@@ -36,6 +37,18 @@ namespace sl.infrastructure.Repositories
                     RegisteredAt = p.RegisteredAt
                 });
             return logs;
+        }
+
+        public Task<int> GetLogsCountByTerm(string systemId, string queryString = null)
+        {
+            var query = _dbContext.Logs.Where(p => p.SystemId.ToUpper() == systemId.ToUpper());
+
+            if (!string.IsNullOrWhiteSpace(queryString))
+            {
+                query = query.Where(p => p.SearchVector.Matches(queryString));
+            }
+
+            return query.CountAsync();
         }
     }
 }
