@@ -20,20 +20,21 @@
     </div>
 </form>
 
+
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Message</th>
-            <th>Level</th>
-            <th>Labels</th>
-            <th>Registered at</th>
+            <th scope="col">Message</th>
+            <th scope="col">Level</th>
+            <th scope="col">Labels</th>
+            <th scope="col">Registered at</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model.Data)
         {
             <tr>
-                <td>@item.Message</td>
+                <td scope="row">@item.Message</td>
                 <td>@item.Level</td>
                 <td>
                     @foreach (var label in item.Labels)
@@ -47,3 +48,5 @@
     </tbody>
     <tfoot></tfoot>
 </table>
+
+

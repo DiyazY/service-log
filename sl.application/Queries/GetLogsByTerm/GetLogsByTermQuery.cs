@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using sl.application.Models;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 

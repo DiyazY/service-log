@@ -1,7 +1,6 @@
 ﻿using NpgsqlTypes;
 using sl.domain.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq.Expressions;
 
 namespace sl.infrastructure.Repositories.Context
