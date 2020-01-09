@@ -1,5 +1,6 @@
 using System;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
@@ -17,11 +18,6 @@ namespace sl.web
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.ConfigureLogging(config =>
-                    {
-                        config.AddConsole();
-                        config.AddEventLog();
-                    });
                     webBuilder.UseStartup<Startup>();
                 });
     }

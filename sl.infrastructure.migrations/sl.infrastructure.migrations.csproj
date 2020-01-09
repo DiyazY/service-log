@@ -8,4 +8,8 @@
     <ProjectReference Include="..\sl.infrastructure\sl.infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

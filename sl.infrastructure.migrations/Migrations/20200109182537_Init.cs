@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 using NpgsqlTypes;
 
@@ -22,7 +21,7 @@ namespace sl.infrastructure.migrations.Migrations
                     system_id = table.Column<string>(nullable: true),
                     stack_trace = table.Column<string>(nullable: true),
                     registered_at = table.Column<DateTime>(nullable: false),
-                    labels = table.Column<List<string>>(type: "text[]", nullable: true),
+                    labels = table.Column<string[]>(type: "text[]", nullable: true),
                     s_vector = table.Column<NpgsqlTsVector>(nullable: true)
                 },
                 constraints: table =>
