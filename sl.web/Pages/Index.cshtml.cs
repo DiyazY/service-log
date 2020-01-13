@@ -1,7 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
 using sl.application.Models;
 using sl.application.Queries.GetLogsByTerm;
 using System;
@@ -12,13 +11,11 @@ namespace sl.web.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
         private readonly IMediator _mediator;
 
-        public IndexModel(IMediator mediator, ILogger<IndexModel> logger)
+        public IndexModel(IMediator mediator)
         {
             _mediator = mediator;
-            _logger = logger;
         }
 
         [BindProperty(SupportsGet = true)]

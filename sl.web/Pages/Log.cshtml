@@ -1,0 +1,30 @@
+﻿@page
+@model sl.web.LogModel
+@{
+    ViewData["Title"] = "Log";
+}
+
+<div class="card">
+    <div class="card-header">
+        <span class="badge badge-info">@Model.Log.Level</span> @Model.Log.RegisteredAt
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Message: @Model.Log.Message</h5>
+        <div>
+            Labels:
+            @foreach (var label in Model.Log.Labels)
+            {
+                <span class="badge badge-info">@label</span>
+            }
+        </div>
+        <div>
+            Stack trace:
+            <code>@Model.Log.StackTrace</code>
+        </div>
+    </div>
+    <div class="card-footer">
+        <a href="@ViewData["returnUrl"]" class="btn btn-light mt-1 float-right">Back</a>
+    </div>
+</div>
+
+
