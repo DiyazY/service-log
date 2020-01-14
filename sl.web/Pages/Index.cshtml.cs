@@ -16,7 +16,7 @@ namespace sl.web.Pages
         public IndexModel(IMediator mediator)
         {
             _mediator = mediator;
-        }
+        }        
 
         [BindProperty(SupportsGet = true)]
         public int CurrentPage { get; set; } = 1;

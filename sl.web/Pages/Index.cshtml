@@ -12,12 +12,10 @@
 <form>
     <div class="form-row align-items-center">
         <div class="col-auto">
-            <label class="sr-only" for="system-id">System id</label>
-            <input asp-for="SystemId" type="text" class="form-control mb-2" id="system-id">
+            <input asp-for="SystemId" type="text" class="form-control mb-2" id="system-id" placeholder="System Id">
         </div>
         <div class="col-auto">
-            <label class="sr-only" for="term">Term</label>
-            <input asp-for="Term" type="text" class="form-control mb-2" id="term">
+            <input asp-for="Term" type="text" class="form-control mb-2" id="term" placeholder="Search string">
         </div>
         <div class="col-auto">
             <button type="submit" class="btn btn-light mb-2">Search</button>
@@ -33,7 +31,6 @@
             <th scope="col">Level</th>
             <th scope="col">Labels</th>
             <th scope="col">Registered at</th>
-            <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
