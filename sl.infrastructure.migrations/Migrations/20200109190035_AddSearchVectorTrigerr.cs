@@ -11,7 +11,6 @@ namespace sl.infrastructure.migrations.Migrations
               BEGIN
                 new.s_vector :=
                   to_tsvector('pg_catalog.english', coalesce(new.message,'')) ||
-                  to_tsvector('pg_catalog.english', coalesce(new.stack_trace,'')) ||
                   to_tsvector('pg_catalog.english', coalesce(new.system_id,'')) ||
                   to_tsvector('pg_catalog.english', coalesce(new.level,'')) ||
                   array_to_tsvector(new.labels);
