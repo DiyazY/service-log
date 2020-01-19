@@ -12,16 +12,20 @@ Certain workers (scrapers, consoles, whatever applications) can save logs direct
 ### WebApi
 Certain workers (scrapers, consoles, whatever applications) can send logs to the WebApi endpoint. There is a Swagger Api documentation, where models and methods are well described.
 
-![image](https://user-images.githubusercontent.com/16912141/72686949-8082f800-3b0a-11ea-8e66-b9c1ea14c701.png)
+![image](https://user-images.githubusercontent.com/16912141/72687545-c9897b00-3b0f-11ea-9449-44a15b761f24.png)
 
 ## Examples
 
 ### Web UI
+List of logs:
 ![image](https://user-images.githubusercontent.com/16912141/72686967-b7f1a480-3b0a-11ea-82be-b14d6331aec1.png)
 
+Viewing a particular log:
 ![image](https://user-images.githubusercontent.com/16912141/72686995-ee2f2400-3b0a-11ea-90a2-e8cdde1f9080.png)
 
 ### Error on client side
+Let's take an unhandled error as an example. Usually, when something goes wrong application should notify a user about it. After that seeing a message like "Something goes wrong!", he wants to understand what it was and of course avoid this kind of error in the future. Unfortunately, when people inform tech support about some bad behavior, most of them can't describe properly a problem and what they did. So consequently, the support gleans information from million logs and subjective client's description. It's not a fast and good way of solving a problem. However, what if a user can provide a link with a log that contains all information: when? how? where? and stack trace :).
+
 ![image](https://user-images.githubusercontent.com/16912141/72687078-b1176180-3b0b-11ea-84f8-a690ab576dfb.png)
 
 ## License
