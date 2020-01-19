@@ -1,5 +1,5 @@
-﻿using bp.common;
-using sl.domain.Exceptions;
+﻿using sl.domain.Exceptions;
+using sl.domain.Models.Common;
 using System.Collections.Generic;
 
 namespace sl.domain.Models
