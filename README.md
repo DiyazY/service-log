@@ -24,7 +24,7 @@ Viewing a particular log:
 ![image](https://user-images.githubusercontent.com/16912141/72686995-ee2f2400-3b0a-11ea-90a2-e8cdde1f9080.png)
 
 ### Error on client side
-Let's take an unhandled error as an example. Usually, when something goes wrong application should notify a user about it. After that seeing a message like "Something goes wrong!", he wants to understand what it was and of course avoid this kind of error in the future. Unfortunately, when people inform tech support about some bad behavior, most of them can't describe properly a problem and what they did. So consequently, the support gleans information from million logs and subjective client's description. It's not a fast and good way of solving a problem. However, what if a user can provide a link with a log that contains all information: when? how? where? and stack trace :).
+Let's take an unhandled error as an example. Usually, when something goes wrong, application should notify a user about it. After that, the user see a message like "Something goes wrong!", then the user wants to understand what it was and, of course, avoid this kind of error in the future. Unfortunately, when people inform tech support about some bad behavior, most of them can't describe properly a problem and what they did. So consequently, the support gleans information from million logs and subjective client's description. It's not a fast and good way of solving the problem. However, what if a user can provide a link with the log that contains all the information: when? how? where? and stack trace :).
 
 ![image](https://user-images.githubusercontent.com/16912141/72687078-b1176180-3b0b-11ea-84f8-a690ab576dfb.png)
 
