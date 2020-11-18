@@ -1,10 +1,8 @@
 ﻿using sl.domain.Exceptions;
-using sl.domain.Models.Common;
-using System.Collections.Generic;
 
 namespace sl.domain.Models
 {
-    public sealed class Label : ValueObject
+    public sealed record Label
     {
         public string Value { get; private set; }
 
@@ -20,10 +18,5 @@ namespace sl.domain.Models
             Value = value;
         }
         #endregion
-
-        protected override IEnumerable<object> GetAtomicValues()
-        {
-            yield return Value;
-        }
     }
 }
