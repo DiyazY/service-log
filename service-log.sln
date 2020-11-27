@@ -17,7 +17,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sl.application.unitTests", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sl.domain.unitTests", "sl.domain.unitTests\sl.domain.unitTests.csproj", "{F9E94407-17CC-4FFA-930F-DBFA8A9259B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sl.infrastructure.migrations", "sl.infrastructure.migrations\sl.infrastructure.migrations.csproj", "{AF16651C-DCCD-4211-8F45-29FE93606B6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sl.infrastructure.migrations", "sl.infrastructure.migrations\sl.infrastructure.migrations.csproj", "{AF16651C-DCCD-4211-8F45-29FE93606B6F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{505DE88A-E3D1-4411-A9E1-942DCD63CC61}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\dotnetcore.yml = .github\workflows\dotnetcore.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
