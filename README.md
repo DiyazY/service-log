@@ -1,4 +1,4 @@
-# service-log
+# service-log ![workflow](https://github.com/diyazy/service-log/actions/workflows/dotnetcore.yml/badge.svg)
 Logging as a service. It's a very simple logging service that saves only logs and gives an ability to scan them.
 The service is following DomainDrivenDesign, CQRS, Repository patterns. It looks like overengineering, but I do believe that a project will grow and these things will be necessary.
 
